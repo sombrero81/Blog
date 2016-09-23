@@ -31,7 +31,7 @@ public class Message implements Serializable {
     
     @ManyToMany
     @JoinTable(name ="MESSAGE_UTILISATEUR")
-    private List<Utilisateur> detinatires =new ArrayList<>() ;
+    private List<Utilisateur> destinataires =new ArrayList<>() ;
     
     
     

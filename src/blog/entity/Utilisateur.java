@@ -28,7 +28,7 @@ public class Utilisateur implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @ManyToMany (mappedBy ="detinatires")
+    @ManyToMany (mappedBy ="destinataires")
     private List<Message> messagesRecus =new ArrayList<>();
     
     @OneToOne(mappedBy = "utilisateur")
