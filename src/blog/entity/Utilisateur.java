@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -27,6 +28,9 @@ public class Utilisateur implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    @ManyToMany (mappedBy ="detinatires")
+    private List<Message> messagesRecus =new ArrayList<>();
+    
     @OneToOne(mappedBy = "utilisateur")
     private Numsecu numsecu;
     
@@ -39,7 +43,7 @@ public class Utilisateur implements Serializable {
     @OneToMany(mappedBy = "utilisateur")
     private List<Commentaire> commentaires= new ArrayList<>();
     
-    @OneToMany(mappedBy = "utilisateur")
+    @OneToMany(mappedBy = "expediteur")
     private List<Message> messagesEnvoye= new ArrayList<>();
     
     

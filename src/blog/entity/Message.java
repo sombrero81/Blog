@@ -6,11 +6,15 @@
 package blog.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
@@ -25,9 +29,15 @@ public class Message implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    @ManyToMany
+    @JoinTable(name =" message_utilis")
+    private List<Utilisateur> detinatires =new ArrayList<>() ;
+    
+    
+    
     @ManyToOne
     @JoinColumn(name = "utilisateur_id")
-    private Utilisateur utilisateur ;
+    private Utilisateur expediteur ;
     
     
 
